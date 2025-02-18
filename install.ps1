@@ -1,20 +1,25 @@
-$RED = [ConsoleColor]::Red
-$GREEN = [ConsoleColor]::Green
+# Define colors
+$Red = "`e[31m"
+$Green = "`e[32m"
+$Reset = "`e[0m"
 
 # Install pywhatkit
 pip install pywhatkit
 
-if (Test-Path "$env:USERPROFILE\source\repos") {
-    if (Test-Path "$env:USERPROFILE\source\repos\tba-with-costia") {
-        Remove-Item -Recurse -Force "$env:USERPROFILE\source\repos\tba-with-costia"
+# Define the repo path
+$RepoPath = "$HOME\source\repos\tba-with-costia"
+
+# Check if the directory exists
+if (Test-Path "$HOME\source\repos") {
+    if (Test-Path $RepoPath) {
+        Remove-Item -Recurse -Force $RepoPath
     }
-    Set-Location ..
-    Move-Item -Path "tba-with-costia" -Destination "$env:USERPROFILE\source\repos"
-    Set-Location "$env:USERPROFILE\source\repos\tba-with-costia"
-    python onstart.py
+    Move-Item -Path "tba-with-costia" -Destination "$HOME\source\repos"
+    Set-Location "$HOME\source\repos\tba-with-costia"
+    python ./onstart.py
     Clear-Host
-    Write-Host "All passed, tell Michael he did a good job" -ForegroundColor $GREEN
+    Write-Host "${Green}All passed, tell Michael he did a good job${Reset}"
 } else {
-    Write-Host "[Something is wrong]" -ForegroundColor $RED
+    Write-Host "${Red}[Something is wrong]${Reset}"
 }
 
