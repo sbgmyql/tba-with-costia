@@ -1,7 +1,7 @@
-import pywhatkit as kit 
+import webbrowser
 
-kit.search("https://github.com/sbgmyql/tba-with-costia")
-kit.search("https://www.friv.com/")
+webbrowser.open("https://github.com/sbgmyql/tba-with-costia")
+webbrowser.open("https://www.friv.com/")
 
 
 

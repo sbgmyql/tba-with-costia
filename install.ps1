@@ -3,9 +3,6 @@ $Red = "`e[31m"
 $Green = "`e[32m"
 $Reset = "`e[0m"
 
-# Install pywhatkit
-pip install pywhatkit
-
 # Define the repo path
 $RepoPath = "$HOME\source\repos\tba-with-costia"
 
